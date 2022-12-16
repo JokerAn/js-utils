@@ -1,0 +1,16 @@
+{
+  "name": "js-utils",
+  "version": "1.0.0",
+  "description": "js中常用的util方法；比如处理日期的函数，a连接下载的，tree数据平铺的，平铺数据转为tree数据的等等",
+  "keywords": [
+    "utils",
+    "chinaData",
+    "aDownload"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "divfooter@163.com",
+  "license": "ISC"
+}
