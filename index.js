@@ -168,6 +168,7 @@ export const objKeysHasValue = (obj = {}, keys = [], type = 'some') => {
 export const anIntervalF = (function () {
   let worker;
   const listeners = new Map();
+  let idCounter = 0;
 
   function createWorker() {
     const script = `
@@ -200,13 +201,13 @@ export const anIntervalF = (function () {
    * 注册一个在指定间隔时间调用的函数。
    * @param {Function} fn - 要调用的函数。
    * @param {number} time - 间隔时间（毫秒）。
-   * @returns {Symbol} 注册的函数的 ID。
+   * @returns {number} 注册的函数的 ID。
    */
   function on(fn, time) {
     if (!worker) {
       createWorker();
     }
-    const id = Symbol();
+    const id = idCounter++;
     if (!listeners.has(id)) {
       listeners.set(id, []);
     }
@@ -217,7 +218,7 @@ export const anIntervalF = (function () {
 
   /**
    * 注销一个函数。
-   * @param {Symbol} id - 要注销的函数的 ID。
+   * @param {number} id - 要注销的函数的 ID。
    */
   function off(id) {
     if (listeners.has(id)) {
@@ -227,6 +228,7 @@ export const anIntervalF = (function () {
 
   return { on, off };
 })();
+
 
 // file转base64
 export function fileToBase64(file) {
