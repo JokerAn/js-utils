@@ -1,6 +1,6 @@
 {
   "name": "an-function",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "js中常用的util方法；比如处理日期的函数，a连接下载的，解析url的，防抖，节流，基于webWork的定时器等等",
   "keywords": [
     "utils",
